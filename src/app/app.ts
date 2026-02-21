@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    RouterLinkWithHref
-],
+    RouterLinkWithHref,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
