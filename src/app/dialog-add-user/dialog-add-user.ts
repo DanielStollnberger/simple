@@ -23,5 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   styleUrl: './dialog-add-user.scss',
 })
 export class DialogAddUser {
-
+  saveUser(){
+    
+  }
 }

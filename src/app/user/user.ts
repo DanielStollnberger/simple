@@ -6,6 +6,8 @@ import { DialogAddUser } from '../dialog-add-user/dialog-add-user';
 import {
   MatDialog,
 } from '@angular/material/dialog';
+import { User } from '../modals/user.class';
+
 
 @Component({
   selector: 'app-user',
@@ -18,9 +20,10 @@ import {
   styleUrl: './user.scss',
 })
 
-export class User {
+export class UserComponent {
   readonly dialog = inject(MatDialog);
   openDialog() {
     this.dialog.open(DialogAddUser)
   }
+ 
 }
