@@ -6,7 +6,7 @@ export class User {
     zip: number;
     street: string;
 
-    constructor(obj: any) {
+    constructor(obj?: any) {
         this.firstName = obj ? obj.firstName : '';
         this.lastName = obj ? obj.lastName : '';
         this.birthdate = obj ? obj.birthdate : '';
