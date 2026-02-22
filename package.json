@@ -45,7 +45,7 @@
     "@angular/build": "^21.1.4",
     "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.0",
-    "@angular/fire": "^0.0.0",
+    "@angular/fire": "^20.0.1",
     "@angular/material": "^21.1.5",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",

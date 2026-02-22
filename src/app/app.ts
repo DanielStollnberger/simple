@@ -4,6 +4,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 
+import { AsyncPipe } from '@angular/common';
+import { Firestore } from '@angular/fire/firestore';
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -17,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './app.scss'
 })
 export class App {
+  firestore: Firestore = inject(Firestore);
+
   protected readonly title = signal('simple-crm');
   showFiller = false;
 }
