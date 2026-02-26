@@ -9,6 +9,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { User } from '../modals/user.class';
 import { UserComponent } from '../user/user';
+import { Firestore, doc, addDoc, collection, onSnapshot, query } from '@angular/fire/firestore';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -22,23 +24,33 @@ import { UserComponent } from '../user/user';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    MatProgressBarModule
   ],
   templateUrl: './dialog-add-user.html',
   styleUrl: './dialog-add-user.scss',
 })
 export class DialogAddUser {
   readonly dialogRef = inject(MatDialogRef<MatDialog>);
-  birthdate: any;
+  firestore: Firestore = inject(Firestore);
+
+  q = query(collection(this.firestore, "user"));
+  unsubscribe = onSnapshot(this.q, (querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+    });
+  });
 
   user = new User();
-  saveUser() {
-    if (this.user.birthdate) {
-    this.user.birthdate = this.birthdate.getTime();
-    }
-    console.log(
-      this.user
-    );
+  loading = false;
+
+  async saveUser() {
+    this.loading = true;
+    await addDoc(collection(this.firestore, "user"), this.user.toJSON());
+
+    this.loading = false;
+    this.closeDialog();
   }
+
   closeDialog() {
     this.dialogRef.close();
   }

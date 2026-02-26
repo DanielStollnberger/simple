@@ -1,7 +1,7 @@
 export class User {
     firstName: string;
     lastName: string;
-    birthdate: number;
+    birthdate: Date;
     city: string;
     zip: number;
     street: string;
@@ -13,5 +13,16 @@ export class User {
         this.city = obj ? obj.city : '';
         this.zip = obj ? obj.zip : '';
         this.street = obj ? obj.street : '';
+    }
+
+    toJSON() {
+        return {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            birthdate: this.birthdate.getTime(),
+            city: this.city,
+            zip: this.zip,
+            street: this.street
+        }
     }
 }

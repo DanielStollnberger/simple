@@ -22,6 +22,8 @@ import { User } from '../modals/user.class';
 
 export class UserComponent {
   readonly dialog = inject(MatDialog);
+
+
   openDialog() {
     this.dialog.open(DialogAddUser)
   }
