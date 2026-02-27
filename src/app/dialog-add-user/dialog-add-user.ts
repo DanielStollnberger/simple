@@ -33,19 +33,12 @@ export class DialogAddUser {
   readonly dialogRef = inject(MatDialogRef<MatDialog>);
   firestore: Firestore = inject(Firestore);
 
-  q = query(collection(this.firestore, "user"));
-  unsubscribe = onSnapshot(this.q, (querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-    });
-  });
-
   user = new User();
   loading = false;
 
   async saveUser() {
     this.loading = true;
-    await addDoc(collection(this.firestore, "user"), this.user.toJSON());
+    await addDoc(collection(this.firestore, "user"), this.user.toJSON())
 
     this.loading = false;
     this.closeDialog();
