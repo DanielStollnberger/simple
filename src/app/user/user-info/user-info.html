@@ -1,1 +1,28 @@
-<p>user-info works!</p>
+@if (userInfo) {
+
+<mat-card class="user-info">
+    <button matIconButton [matMenuTriggerFor]="userMenu" class="pin-right-top-corner">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="openUserEditor()">Edit</button>
+      </mat-menu>
+    <img src="assets/img/player.jpg" class="user-info-profile-img">
+    <div class="user-info-header">
+        <h2>{{ userInfo.lastName + ' ' + userInfo.firstName }}<br></h2>
+        <a href="mailto: userInfo.email"> {{ userInfo.email }}</a>
+    </div>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-header>
+        <h1>Adress</h1>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+        <p>{{ userInfo.street }}</p>
+        <p>{{ userInfo.zip + ' ' + userInfo.city}}</p>
+    </mat-card-content>
+</mat-card>
+
+}

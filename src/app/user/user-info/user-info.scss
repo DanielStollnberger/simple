@@ -1,0 +1,47 @@
+.user-info-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70px;
+    gap: 10px;
+
+    a {
+        text-decoration: none;
+        color: darkmagenta;
+        font-weight: 400;
+        font-size: 18px;
+
+        &:hover {
+            cursor: pointer;
+            color: whitesmoke;
+        }
+    }
+}
+
+.user-info {
+    background-color: darkkhaki;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+
+    h2 {
+        font-size: 28px;
+
+    }
+
+    img {
+        height: 100px;
+        width: 100px;
+        border-radius: 100%;
+    }
+}
+
+.pin-right-top-corner{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
